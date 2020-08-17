@@ -26,8 +26,10 @@ const DIGITS = 4;
 const fasterAdjacentProduct = (string, numDigits) => {
   const stringArrs = string.split('0');
   return stringArrs
-    .map(str => str.length >= numDigits ? largestAdjacentProduct(str, numDigits) : 0)
-    .reduce((max, val) => val > max ? val : max, 0);
+    .map((str) =>
+      str.length >= numDigits ? largestAdjacentProduct(str, numDigits) : 0
+    )
+    .reduce((max, val) => (val > max ? val : max), 0);
 };
 
 const largestAdjacentProduct = (string, numDigits) => {

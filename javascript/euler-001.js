@@ -12,18 +12,27 @@ for (var i = 0; i < MAX; i++) {
 
 let sum2 = 0;
 for (var i = 0; i < MAX; i += NUM1) {
-  sum2 += i % NUM2 == 0 ? 0 : i; 
+  sum2 += i % NUM2 == 0 ? 0 : i;
 }
 for (var i = 0; i < MAX; i += NUM2) {
   sum2 += i;
 }
 
 // math-y
-const sequenceSum = (min, max, num) => (num * (min + max) / 2);
-const largestNumUnderMax = (skip, max) => (max - (max % skip));
-const forThis = num => sequenceSum(num, largestNumUnderMax(num, (MAX - 1)), Math.floor((MAX - 1) / num));
+const sequenceSum = (min, max, num) => (num * (min + max)) / 2;
+
+const largestNumUnderMax = (skip, max) => max - (max % skip);
+
+const forThis = (num) =>
+  sequenceSum(
+    num,
+    largestNumUnderMax(num, MAX - 1),
+    Math.floor((MAX - 1) / num)
+  );
 
 const sum3 = forThis(NUM1) + forThis(NUM2) - forThis(NUM1 * NUM2);
 
-console.log(`LINER TIME, CONSTANT SPACE\nsolution 1: ${sum1}\nsolution 2: ${sum2}`);
+console.log(
+  `LINER TIME, CONSTANT SPACE\nsolution 1: ${sum1}\nsolution 2: ${sum2}`
+);
 console.log(`CONSTANT TIME, CONSTANT SPACE\nsolution: ${sum3}`);

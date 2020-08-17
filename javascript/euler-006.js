@@ -10,5 +10,6 @@ const reduceRange = (max, fn) => {
   return sum;
 };
 
-const difference = reduceRange(MAX, val => val) ** 2 - reduceRange(MAX, val => val ** 2);
+const difference =
+  reduceRange(MAX, (val) => val) ** 2 - reduceRange(MAX, (val) => val ** 2);
 console.log(`solution: ${difference}`);

@@ -25,7 +25,7 @@ const NUM = 4;
 
 const largestProduct = (arr, size) => {
   let max = 0;
-  
+
   for (var i = 0; i < arr.length; i++) {
     for (var j = 0; j < arr[i].length; j++) {
       let horizontal = 1;
@@ -35,7 +35,10 @@ const largestProduct = (arr, size) => {
       for (var diff = 0; diff < size; diff++) {
         horizontal *= i + diff < arr.length ? arr[i + diff][j] : 0;
         vertical *= j + diff < arr[i].length ? arr[i][j + diff] : 0;
-        diagonal *= i + diff < arr.length && j + diff < arr[i].length ? arr[i + diff][j + diff] : 0;
+        diagonal *=
+          i + diff < arr.length && j + diff < arr[i].length
+            ? arr[i + diff][j + diff]
+            : 0;
       }
       max = Math.max(max, horizontal, vertical, diagonal);
     }
@@ -43,6 +46,8 @@ const largestProduct = (arr, size) => {
   return max;
 };
 
-const strArr = STRING.split('\n').map(str => str.split(' ').map(str => Number(str)));
+const strArr = STRING.split('\n').map((str) =>
+  str.split(' ').map((str) => Number(str))
+);
 const product = largestProduct(strArr, NUM);
 console.log(`solution: ${product}`);

@@ -2,7 +2,7 @@
 
 const TOTAL = 1000;
 
-const pythagoreanTripleEqualTo = max => {
+const pythagoreanTripleEqualTo = (max) => {
   let a = Math.floor(max / 3);
 
   while (a < max) {
@@ -16,8 +16,8 @@ const pythagoreanTripleEqualTo = max => {
   }
 
   return { a: 0, b: 0, c: 0 };
-}
+};
 
 const { a, b, c } = pythagoreanTripleEqualTo(TOTAL);
 console.log(`a: ${a}, b: ${b}, c: ${c}`);
-console.log(`solution: ${ a * b * c }`);
+console.log(`solution: ${a * b * c}`);
