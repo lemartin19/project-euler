@@ -16,8 +16,16 @@ const TRIANGLE = `75
 63 66 04 68 89 53 67 30 73 16 69 87 40 31
 04 62 98 27 23 09 70 98 73 93 38 53 60 04 23`;
 
-const pathfinder = () => {};
+const pathfinder = (input) => {
+  if (input.length === 1) return input[0];
 
-const input = TRIANGLE.split('\n').map((row) => row.split(' '));
+  const lastRow = input[input.length - 1];
+  const newLastRow = input[input.length - 2].map(
+    (val, idx) => val + Math.max(lastRow[idx], lastRow[idx + 1])
+  );
+  return pathfinder([...input.slice(0, input.length - 2), newLastRow]);
+};
+
+const input = TRIANGLE.split('\n').map((row) => row.split(' ').map(Number));
 const result = pathfinder(input);
 console.log(`solution: ${result}`);
