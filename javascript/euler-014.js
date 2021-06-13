@@ -1,7 +1,7 @@
 'use es6';
 
 const MAX = 1000000;
-const collatzNums = { '1': 1 };
+const collatzNums = { 1: 1 };
 
 const collatzLen = (num) => {
   if (!collatzNums[num]) {
